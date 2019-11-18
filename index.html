@@ -1,1 +1,375 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> An introduction to the RAP dataset </title>
+<!--
+The website template coming from Ross Girshick, who is an impressing man in object detection.
+-->
+<style>
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub,  var, dl, dt,
+dd, ol, ul, li, fieldset, form, label, legend, caption,
+thead {
+  border: 0pt none;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0pt;
+  outline-color: invert;
+  outline-style: none;
+  outline-width: 0pt;
+  padding: 0pt;
+  vertical-align: baseline;
+}
+td {
+    text-align: center;
+}
+a {
+  color: #1772d0;
+  text-decoration:none;
+}
+
+a:focus, a:hover {
+  color: #f09228;
+  text-decoration:none;
+}
+a.paper {
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+b.paper {
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+* {
+  margin: 0pt;
+  padding: 0pt;
+}
+
+body {
+  position: relative;
+  margin: 3em auto 2em auto;
+  width: 850px;
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  background: #eee;
+}
+
+h2 {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 15pt;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 13pt;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+strong {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+ul {
+  list-style: circle;
+}
+
+img {
+  border: none;
+}
+
+li {
+  padding-bottom: 0.5em;
+  margin-left: 1.4em;
+}
+
+strong, b {
+    font-weight:bold;
+}
+
+em, i {
+    font-style:italic;
+}
+
+div.section {
+  clear: both;
+  margin-bottom: 1.5em;
+  background: #eee;
+}
+
+div.spanner {
+  clear: both;
+}
+
+div.paper {
+  clear: both;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 1em 1em 1em 1em;
+}
+
+div.paper div {
+  /* padding-left: 230px; */
+  padding-right: 230px;
+}
+
+img.paper {
+  margin-bottom: 0.5em;
+  float: right;
+  width: 200px;
+}
+
+span.blurb {
+  font-style:italic;
+  display:block;
+  margin-top:0.75em;
+  margin-bottom:0.5em;
+}
+
+pre, code {
+  font-family: 'Lucida Console', 'Andale Mono', 'Courier', monospaced;
+  margin: 1em 0;
+  padding: 0;
+}
+
+div.paper pre {
+  font-size: 0.9em;
+}
+</style>
+
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+ rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="section">
+    <h2 style="text-align: center;">  A Richly Annotated Dataset for Pedestrian Attribute Recognition</h2>
+    <br />
+    <p style="text-align: center"> 
+        Dangwei Li, Zhang Zhang, Xiaotang Chen, Haibin Ling, Kaiqi Huang </p> <br />
+</div>
+    
+<div class="section">
+<h2> Abstract </h2>
+    <div class="paper">
+    We collect a Richly Annotated Pedestrian (RAP) dataset from multi-camera surveillance 
+    scenarios for pedestrian attribute analysis. The RAP has in total 41,585 pedestrian samples, each of
+    which is annotated with 72 attributes as well as viewpoints, occlusions, body parts information.
+    To our knowledge, the RAP is current largest pedestrian attribute dataset, which is expected to promote 
+    the study of large-sclae attribute recognition systems.
+    </div>
+</div>
+
+
+<div class="section">
+<h2> Dataset Information </h2>
+    <div class="paper"> 
+    <ul>
+    <li>
+    <span> The basic annotation information on RAP dataset can be seen from the Table 1. <span> <br />
+    <br />
+    <span align="center">
+        <table border="1">
+        <caption> Table 1: Annotations in the RAP dataset </caption>
+        <tr>  
+        <th colspan="2"> Class </th> 
+        <th> Attribute </th> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Spatial-Temporal </td> 
+        <td> Time, SceneID, image position,Bounding box of body/head-shoulder/upper-body/lower-body/accessories. </td> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Whole </td> 
+        <td> Gender, age, body shape, role. </td> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Accessories </td> 
+        <td> Backpack, single shoulder bag, handbag, plastic bag, paper bag etc. </td> 
+        </tr>
+        <tr> 
+        <tr> 
+        <td colspan="2"> Posture,Actions </td> 
+        <td> Viewpoints, telephoning, gathering, talking, pushing, carrying etc. </td> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Occlusions </td> 
+        <td> Occluded parts, occlusion types. </td> 
+        </tr>
+        <tr> 
+        <td rowspan="3"> Parts </td> 
+        <td> head </td> 
+        <td> Hair style, hair color, hat, glasses. </td>
+        </tr>
+        <tr> 
+        <td> upper </td> 
+        <td> Clothes style, clothes color. </td> 
+        </tr>
+        <tr> 
+        <td> Lower </td> 
+        <td> Clothes style, clothes color, footware style, footware color. </td> 
+        </tr>
+        </table>
+    </span> <br />
+    </li>
+    
+    <li>
+    <span> To have a clear understanding about the annotation, some attributes are shown in Figure 1 according to the class which is shown in Table 1. </span>
+    <p align="center">
+        <br/>
+        Figure 1: Attribute examples in RAP dataset. The attributes are shown according to defination in Table 1.
+        <br/>
+        <img title="example_attribute" style="width: 480px;" src="./misc/images/rap_attribute_structure_examples.jpg" /> 
+    </p>
+    </li>
+
+    <li>
+    <span> In real scene, attribute will change or be hard to determine due to camera viewpoint, 
+        body part occlusion, human's orientation and pose, time range, image qualiry etc. 
+        Even the same person's attribute will change a lot, which make it a challenge problem. 
+        Examples of different attributes on the same person in RAP dataset are shown in Figure 2.</span>
+    <p align="center">
+        <br/>
+        Figure 2: The same person which are captured at different time.
+        <img title="example_images" style="height: 180px;" src="./misc/images/rap_examples.jpg" /> 
+    </p>
+
+	<li> 
+    <span> The RAP dataset provides rough annotation about body parts, including head-shoulder, uppper body and lower body. Accurate annotation on part position 
+        is hard in that the image quality is not good in real surveillance scenarios. The part anontation examples are shown in Figure 3.
+    <br />
+    <p align="center">
+        <br/>
+        Figure 3: The part annotation example in RAP dataset.
+        <br/>
+        <img title="part_annotation" style="height: 170px;" 
+        src="./misc/images/rap_part_annotation.jpg" /> </p>
+    <br />
+	
+    <li>
+    <span> Viewpoints and Occlusion are two important research topics in visual recogniton tasks. The RAP dataset provides 
+            the annotation on these two factors. The distribution of viewpoints and occlusion positons in RAP are shown in Figure 4. </span>
+    <br />
+    <p align="center">
+        <br/>
+        Figure 4: The distribution of viewpoints and occlusion positions.
+        <br/>
+        <img title="distribution" style="height: 130px;" 
+        src="./misc/images/viewpoint_occlusion_distribution.jpg" /> </p>
+    <br />
+ 
+
+    <li>
+    <span> For clear comparsion with existing person attribute dataset, the detail information about existing popular pedestrian 
+        attribute dataset has been shown in Table 2. </span> <br />
+    <br/> 
+    <!-- below is the table, comparision with other datasets  --> 
+    <span align="center">
+    <table border="1" width="800">
+    <caption> Table 2: A comparison between different pedestrian attribute datasets</caption>
+    <tr> 
+        <td width="120"> Datasets </td>
+        <td width="80"> #Cams </td>
+        <td width="80"> Scene </td>
+        <td width="180"> Annotation unit</td>
+        <td width="120"> #Samples </td>
+		<td width="120"> Resolution </td>
+        <td width="220"> #Binary attributes</td>
+        <td width="80"> Viewpoint </td>
+        <td width="80"> Occlusion </td>
+        <td width="180"> Part location</td>
+    </tr>
+    <tr>
+        <td> VIPeR[1] </td>  <td> 2 </td>  <td> outdoor </td>  <td> PID </td>
+        <td> 1264 </td> 	<td>48*128 </td> <td> 21 </td> <td> yes </td> <td> no </td> <td> no </td>
+    </tr>
+    <tr>
+        <td> PRID[2] </td>  <td> 2 </td>  <td> outdoor </td>  <td> PID </td>
+        <td> 400 </td>    	<td>64*128 </td>  <td> 21 </td> <td> no </td> <td> no </td> <td> no </td>
+    </tr>
+    <tr>
+        <td> GRID[3] </td>  <td> 8 </td>  <td> outdoor </td>  <td> PID </td>
+        <td> 500 </td>   	<td>from 29*67 to 169*365</td>	<td> 21 </td> <td> no </td> <td> no </td> <td> no </td>
+    </tr>
+    <tr>
+        <td> APiS[4] </td>  <td> - </td>  <td> outdoor </td>  <td> PI </td>
+        <td> 3661 </td>  	<td>48*128</td>	<td> 11 </td> <td> no </td> <td> no </td> <td> no </td>
+    </tr>
+    <tr>
+        <td> PETA[5] </td>  <td> - </td>  <td> mixture </td>  <td> PID </td>
+        <td> 19,000 </td> 	<td>from 17*39 to 169*365</td>	<td> 61 </td> <td> no </td> <td> no </td> <td> no </td>
+    </tr>
+    <tr>
+        <td> RAP </td>  <td> 26 </td>  <td> indoor </td>  <td> PI </td>
+        <td> 41,585 </td>   <td>from 36*92 to 344*554</td>	<td> 69 </td> <td> yes </td> <td> yes </td> <td> yes </td>
+    </tr>
+    </table>
+    </span>
+    </li>
+    
+    <br/>
+    </div>
+
+</div>
+
+
+<div class="section">
+<h2> Citation </h2>
+    <div class="paper">
+    If you use RAP dataset in your research, please kindly cite our work as:
+    <br/>
+    <br/>
+    <textarea rows="7" cols="100" readonly="true">
+    "@article{li2016richly,
+    title={A Richly Annotated Dataset for Pedestrian Attribute Recognition},
+    author={Li, Dangwei and Zhang, Zhang and Chen, Xiaotang and Ling, Haibin and Huang, Kaiqi},
+    journal={arXiv preprint arXiv:1603.07054},
+    year={2016}
+    "
+    </textarea>
+    </div>
+</div>
+
+
+<div class="section">
+<h2> Download </h2>
+	<div class="paper">
+	If you want to use the RAP dataset for scientific research only, please download the aggrement <a href="./misc/dataset/RAP V1.0 Database License Aggrement.pdf"> here </a>.
+	<br/>
+	Please read the aggrement, and send us (dangwei.li@nlpr.ia.ac.cn) the aggrement, we will send you the download links after the aggrement is confirmed.
+    </div>
+</div>
+
+<div class="section">
+<h2> Reference </h2>
+    <div class="paper">
+    <span>[1] Gray, Douglas and Tao, Hai, Viewpoint invariant pedestrian recognition with an ensemble of localized features, ECCV2008 </span>
+    <br/>
+    <span>[2] Hirzer, Martin and Beleznai, Csaba and Roth, Peter M and Bischof, Horst. Person re-identification by descriptive and discriminative classification, Image Analysis 2011 </span>
+    <br/>
+    <span>[3] Liu, Chunxiao and Gong, Shaogang and Loy, Chen Change and Lin, Xinggang. Person re-identification: What features are important?, ECCV2012 Workshops</span>
+    <br/>
+    <span>[4] Zhu, Jianqing and Liao, Shengcai and Lei, Zhen and Yi, Dong and Li, Stan. Pedestrian attribute classification in surveillance: Database and evaluation, ICCV2013 Workshops</span>
+    <br/>
+    <span>[5] Deng, Yubin and Luo, Ping and Loy, Chen Change and Tang, Xiaoou. Pedestrian attribute recognition at far distance, Multimedia2014</span>
+    <br/>
+    </div>
+</div>
+
+</body>
+
+</html>
