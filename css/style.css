@@ -978,11 +978,13 @@
 
 	#banner {
 		background-color: #666666;
-		background-image: url("../images/banner.jpg");
+		background-image: url("../images/banner1.jpg");
+		/* background-blend-mode: lighten; */
 		background-size: cover;
 		background-position: center center;
 		background-repeat: no-repeat;
-		color: #d8d8d8;
+		/* color: #333333; */
+		color: #ffffff;
 		padding: 14em 0;
 		text-align: center;
 		position: relative;
@@ -1017,7 +1019,7 @@
 		}
 
 			#banner .button.alt:hover {
-				background-color: rgba(144, 144, 144, 0.275);
+				background-color: rgba(99, 97, 97, 0.275);
 			}
 
 			#banner .button.alt:active {
@@ -1033,7 +1035,8 @@
 		}
 
 		#banner h2 {
-			font-size: 3.5em;
+			font-size: 3em;
+			font-weight: 400;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
@@ -1041,6 +1044,7 @@
 
 		#banner p {
 			font-size: 1.5em;
+			font-weight: 200;
 			margin-bottom: 2em;
 		}
 
