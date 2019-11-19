@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> RAP_v2.0 </title>
+<!--
+The website template coming from Ross Girshick, who is an impressing man in object detection.
+-->
+<style>
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub,  var, dl, dt,
+dd, ol, ul, li, fieldset, form, label, legend, caption,
+thead {
+  border: 0pt none;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0pt;
+  outline-color: invert;
+  outline-style: none;
+  outline-width: 0pt;
+  padding: 0pt;
+  vertical-align: baseline;
+}
+td {
+    text-align: center;
+}
+a {
+  color: #1772d0;
+  text-decoration:none;
+}
+
+a:focus, a:hover {
+  color: #f09228;
+  text-decoration:none;
+}
+a.paper {
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+b.paper {
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+* {
+  margin: 0pt;
+  padding: 0pt;
+}
+
+body {
+  position: relative;
+  margin: 3em auto 2em auto;
+  width: 850px;
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  background: #eee;
+}
+
+h2 {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 15pt;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 13pt;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+strong {
+  font-family: Lato, Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+ul {
+  list-style: circle;
+}
+
+img {
+  border: none;
+}
+
+li {
+  padding-bottom: 0.5em;
+  margin-left: 1.4em;
+}
+
+strong, b {
+    font-weight:bold;
+}
+
+em, i {
+    font-style:italic;
+}
+
+div.section {
+  clear: both;
+  margin-bottom: 1.5em;
+  background: #eee;
+}
+
+div.spanner {
+  clear: both;
+}
+
+div.paper {
+  clear: both;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 1em 1em 1em 1em;
+}
+
+div.paper div {
+  /* padding-left: 230px; */
+  padding-right: 230px;
+}
+
+img.paper {
+  margin-bottom: 0.5em;
+  float: right;
+  width: 200px;
+}
+
+span.blurb {
+  font-style:italic;
+  display:block;
+  margin-top:0.75em;
+  margin-bottom:0.5em;
+}
+
+pre, code {
+  font-family: 'Lucida Console', 'Andale Mono', 'Courier', monospaced;
+  margin: 1em 0;
+  padding: 0;
+}
+
+div.paper pre {
+  font-size: 0.9em;
+}
+</style>
+
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+ rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="section">
+    <h2 style="text-align: center;"> A Richly Annotated Pedestrian Dataset for Person Retrieval in Real Surveillance Scenarios</h2>
+    <br />
+    <p style="text-align: center"> 
+        Dangwei Li, Zhang Zhang, Xiaotang Chen, Kaiqi Huang </p> <br />
+</div>
+    
+<div class="section">
+<h2> Abstract </h2>
+    <div class="paper">
+    Pedestrian retrieval with various types of queries, e.g. a set of attributes or a portrait photo, 
+    has a great application potential in large-scale intelligent surveillance systems. 
+    This paper presents a <span style="color:red"><strong>Richly Annotated Pedestrian (RAP) dataset v2.0</strong></span> for the pedestrian retrieval application, which is collected from uncontrolled multi-camera surveillance scenarios. 
+    RAP dataset v2.0 is an extended version of <a href="http://rap.idealtest.org/"><strong>RAP dataset v1.0</strong></a>.
+	RAP dataset v1.0 only contains 41585 attribute annotated pedestrian images. As an extension vision, RAP dataset v2.0 adds identity annotations 
+	for a part of v1.0 and collects more attribute annotated pedestrian images as well.
+	In total, RAP dataset v2.0 has 84,928 attribute annotated pedestrian samples, and 26,638 of them are also identity annotated. 
+	The same as v1.0, each of pedestrian images in v2.0 is also annotated with viewpoints, occlusions, and body parts information, besides of 72 attributes.
+	Based on this dataset, quantitative analysis are made by an amount of state-of-the-art algorithms on three tasks, i.e., pedestrian attribute recognition, attribute-based person retrieval and image-based person retrieval (person re-identification), 
+	to build a high-quality person retrieval benchmark.
+    We hope the RAP dataset v2.0 can promote the research of person retrieval in real scenarios.
+    </div>
+</div>
+
+
+<div class="section">
+<h2> RAP Dataset v2.0</h2>
+    <div class="paper">
+    <span>RAP dataset v2.0 aims to promote the research on pedestrian retrieval with various of queries, including pedestrian 
+    attributes and person images. The overall types of annotations are shown in Table 1. </span> <br />
+    <br>
+        <span align="center">
+        <table border="1">
+        <caption> Table 1: Overall annotations in the RAP dataset v2.0 </caption>
+        <tr>  
+        <th colspan="2"> Class </th> 
+        <th> Attribute </th> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Spatial-Temporal </td> 
+        <td> Time, sceneID, image position, bounding box of body/head-shoulder/upper-body/lower-body/accessories. </td> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Whole </td> 
+        <td> Gender, age, body shape, role. </td> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Accessories </td> 
+        <td> Backpack, single shoulder bag, handbag, plastic bag, paper bag etc. </td> 
+        </tr>
+        <tr> 
+        <tr> 
+        <td colspan="2"> Posture,Actions </td> 
+        <td> Viewpoints, telephoning, gathering, talking, pushing, carrying etc. </td> 
+        </tr>
+        <tr> 
+        <td colspan="2"> Occlusions </td> 
+        <td> Occluded parts, occlusion types. </td> 
+        </tr>
+        <tr> 
+        <td rowspan="3"> Parts </td> 
+        <td> head </td> 
+        <td> Hair style, hair color, hat, glasses. </td>
+        </tr>
+        <tr> 
+        <td> upper </td> 
+        <td> Clothes style, clothes color. </td> 
+        </tr>
+        <tr> 
+        <td> Lower </td> 
+        <td> Clothes style, clothes color, footware style, footware color. </td> 
+        </tr>
+        </table>
+    </span> <br />
+    </li>
+    
+    <li>
+    <span> <strong>Pedestrian Attribute</strong> <span> <br /><br />
+    The RAP dataset v2.0 contains 69 binary attributes and 3 multi-class attributes, such as gender, backpack, and cloth types.
+    Besides common pedestrian attributes, some attributes are firstly annotated in RAP dataset, such as person actions. 
+    Some samples are shown in Figure 1. 
+        <p align="center">
+        <br/>
+        Figure 1: Samples with action attribute annotations.
+        <br/>
+        <img style="width: 560px;" src="./images/action-attributes.png" /> 
+        </p>
+    <br />
+    Besides 72 attributes, pedestrian orientations, occlusion patterns, and coarse body parts 
+    are also annotated, which are useful for pedestrian related applications. Locations of body parts and accessories are annotated as well.
+    Samples with body part annotations are shown in Figure 2. The green box annotates the location of accessories.
+        <p align="center">
+        <br/>
+        Figure 2: Samples with body part annotations.
+        <br/>
+        <img style="width: 280px;" src="./images/bodyparts.png" /> 
+        </p>
+    <br />
+    The overall comparison with existing pedestrian attribute datasets is shown in Table 2.
+        <p align="center">
+        <br/>
+        Table 2: Comparison with existing pedestrian attribute datasets.
+        <br/>
+        <img style="width: 720px;" src="./images/comp_attribute.png" /> 
+        </p>
+    <br />
+    </li>
+    <li>
+    <span> <strong>Pedestrian Identity</strong> <span> 
+    <br /><br />
+    The RAP dataset v2.0 contains 2,589 person identities. Existing person ReID datasets usually only consider a short time period under
+	the assumption that cloth appearances of the same persons are unchanged.
+	Differently, the RAP dataset v2.0 is collected during a long time and there are 598 
+    person identities that appear more than one day. The cloth appearances of these identities are not 
+    exactly the same during different days. Samples with cross-day person identity annotations are shown in Figure 3. 
+    Based on this dataset, researchers can develop more efficient algorithms for long-term person retrieval.
+        <p align="center">
+        <br/>
+        Figure 3: Samples with cross-day person identity annotations.
+        <br/>
+        <img style="width: 560px;" src="./images/cross-identities.png" /> 
+        </p>
+        <br />
+    The overall comparison with existing person ReID datasets is shown in Table 3.    
+        <p align="center">
+        <br/>
+        Table 3: Comparison with existing person ReID datasets.
+        <br/>
+        <img style="width: 560px;" src="./images/comp_reid.png" /> 
+        </p>
+    <br />
+    </li>
+    
+    
+</div>
+
+<div class="section">
+<h2> Download </h2>
+	<div class="paper">
+	If you want to use the RAP dataset v2.0 for scientific research only, please download the agreement <a href="./RAP V2.0 Database License agreement.pdf"> here </a>.
+	<br>
+    Please read, sign and send the scanned version back to jiajian2018@ia.ac.cn, we will send you the download links after the agreement is confirmed.
+    <br>
+    <br>
+    The related codes are <a href="https://github.com/dangweili/RAP">released</a>.
+    <br>
+    </div>
+</div>
+
+<div class="section">
+<h2> Citation </h2>
+    <div class="paper">
+    Please kindly cite our work if it helps your research:
+    <br/>
+    <br/>
+    <textarea rows="11" cols="110" readonly="true">
+    @article{li2019richly,
+    title={A richly annotated pedestrian dataset for person retrieval in real surveillance scenarios},
+    author={Li, Dangwei and Zhang, Zhang and Chen, Xiaotang and Huang, Kaiqi},
+    journal={IEEE transactions on image processing},
+    volume={28},
+    number={4},
+    pages={1575--1590},
+    year={2019},
+    publisher={IEEE}
+    }
+    </textarea>
+    </div>
+</div>
+
+</body>
+
+</html>
